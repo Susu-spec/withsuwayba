@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Inter Tight", "Trebuchet MS", sans-serif;
+  font-family: "Inter", "Trebuchet MS", sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   color-scheme: light dark;
   color: #141414;
@@ -15,12 +15,30 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  scroll-behavior: smooth;
 }
+
+@theme {
+  --color-muted-white: '#FCFCFC';
+  --color-secondary: '#9D9D9D';
+}
+
 
 @layer components {
   .section {
-    @apply h-[100dvh]
+    @apply h-full w-full max-w-[90rem] px-4 sm:px-6 lg:px-8 !mx-auto pb-[11.25rem]
   }
+
+  .animated-section {
+    transform: translateY(100vh); /* Start below viewport */
+    transition: transform 0.6s ease;
+  }
+
+  .animated-section.in-view {
+    transform: translateY(0); /* Slide to normal position */
+  }
+
 }
 
 @utility scrollbar-hidden {
@@ -28,3 +46,4 @@
     display: none;  
   }
 }
+

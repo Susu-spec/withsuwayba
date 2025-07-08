@@ -9,8 +9,12 @@ const config: Config  = {
   theme: {
     extend: {
       colors: {
-        'muted-white': '#FCFCFC'
-      }
+        'muted-white': '#FCFCFC',
+        'secondary': '#9D9D9D'
+      },
+      fontFamily: {
+        'inter-tight': ['Inter Tight', 'sans-serif'],
+      },
     },
   },
   plugins: [],
