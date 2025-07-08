@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import About from "./sections/about";
-import Contact from "./sections/contact";
-import Work from "./sections/work";
+import About from "../about";
+import Contact from "../contact";
+import Work from "../work";
 import SuwaybaBg from "@/assets/suwayba-bg.png"
 
 const CompressSection = ({ children, index, totalSections }: any) => {
