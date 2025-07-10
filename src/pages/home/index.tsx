@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import About from "../about";
-import Contact from "../contact";
-import Work from "../work";
-import SuwaybaBg from "@/assets/suwayba-bg.png"
+import HeroSection from "./sections/hero";
+import AboutSection from "./sections/about";
+import WorkSection from "./sections/work";
+import ContactSection from "./sections/contact";
 
 const CompressSection = ({ children, index, totalSections }: any) => {
   const { scrollYProgress } = useScroll();
@@ -40,34 +40,14 @@ const CompressSection = ({ children, index, totalSections }: any) => {
 };
 
 
+
+
 export default function HomePage() {
     const sections = [
-        <section className="section">
-            <p className="!text-[11.25rem] !font-inter-tight font-bold absolute bottom-0 z-5 leading-[8.125rem]">Suwayba</p>
-            
-            <div className="h-full grid grid-cols-2">
-                <div className="w-full relative flex flex-col justify-end !pb-[14.25rem]">
-                <div className="max-w-[50%] leading-[1.125rem]">
-                    <p className="font-medium text-xs">
-                        Frontend Engineer
-                    </p>
-                    <p className="text-gray-400 text-xs">
-                        I build interactive user interfaces that 
-                        connect users to the backend logic of applications. 
-                        My work ensures that digital products are usable, 
-                        responsive, and visually appealing across devices.
-                    </p>
-                </div>
-                </div>
-                
-                <div className="w-full">
-                    <img src={SuwaybaBg} alt=""/>
-                </div>
-            </div>
-        </section>,
-        <About />,
-        <Work />,
-        <Contact />
+        <HeroSection />,
+        <AboutSection />,
+        <WorkSection />,
+        <ContactSection />
     ]
     return (
          <div className="relative">
@@ -82,7 +62,7 @@ export default function HomePage() {
             ))}
       
 
-      {/* <div style={{ height: '400vh' }} /> */}
+      <div style={{ height: '400vh' }} />
     </div>
         
     );
