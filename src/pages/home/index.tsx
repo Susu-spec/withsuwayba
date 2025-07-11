@@ -1,69 +1,78 @@
-import { motion, useScroll, useTransform } from "framer-motion";
 import HeroSection from "./sections/hero";
 import AboutSection from "./sections/about";
 import WorkSection from "./sections/work";
 import ContactSection from "./sections/contact";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useRef } from "react";
 
-const CompressSection = ({ children, index, totalSections }: any) => {
-  const { scrollYProgress } = useScroll();
-  
-  const start = index / totalSections;
-  const end = (index + 1) / totalSections;
-  
-  const height = useTransform(
-    scrollYProgress,
-    [start, end],
-    ['100vh', '0']
-  );
-  
-  const y = useTransform(
-    scrollYProgress,
-    [start, end],
-    [0, -50]
-  );
-  
-  return (
-    <motion.div
-      style={{ 
-        height,
-        y,
-        position: 'sticky',
-        top: 0,
-        zIndex: totalSections - index,
-        overflow: 'hidden'
-      }}
-      className="w-full"
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-
-
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
-    const sections = [
-        <HeroSection />,
-        <AboutSection />,
-        <WorkSection />,
-        <ContactSection />
-    ]
-    return (
-         <div className="relative">
-            {sections.map((section, index) => (
-                <CompressSection 
-                    key={index} 
-                    index={index} 
-                    totalSections={sections.length}
-                    >
-                    {section}
-                </CompressSection>
-            ))}
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
+
+
+  useGSAP(() => {
+    const sections = sectionsRef.current;
+
+    
+    const setupVerticalScroll = () => {
+      sections.forEach((section, index) => {
+        const isLast = index === sections.length - 1;
       
 
-      <div style={{ height: '400vh' }} />
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: 'bottom-=10% top',
+              scrub: 3.5,
+            }
+          })
+          .to(section, {
+            ease: 'none',
+            duration: 4,
+            y: '-100%',
+            startAt: { filter: 'brightness(100%)'},
+            filter: isLast ? 'none' : 'brightness(50%)',
+          }, '<');
+      })
+    }
+
+    setupVerticalScroll();
+   
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
+  const addToRefs = (el: HTMLDivElement | null) => {
+    if (el && !sectionsRef.current.includes(el)) {
+      sectionsRef.current.push(el);
+    }
+  };
+
+
+  const sectionComponents = [
+    <HeroSection key="hero" />,
+    <AboutSection key="about" />,
+    <WorkSection key="work" />,
+    <ContactSection key="contact" />
+  ];
+
+  return (
+    <div className="relative">
+      {sectionComponents.map((SectionComponent, index) => (
+        <div
+          key={index}
+          ref={addToRefs}
+          className={`sticky top-0 bg-[#FCFCFC] `}
+        >
+          {SectionComponent}
+        </div>
+        ))}
     </div>
-        
-    );
+  );
 }
