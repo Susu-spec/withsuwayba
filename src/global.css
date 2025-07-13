@@ -32,7 +32,7 @@
 
   .nav-link {
     color: #141414;
-    font-size: 2.03rem;
+    font-size: 1.75rem;
     font-weight: 700;
     font-family: "Inter Tight", "sans-serif";
     line-height: 115%;
@@ -40,21 +40,32 @@
     max-width: fit-content;
   }
 
-  .nav-link:hover::after {
+  .nav-link:hover::after,
+  .contact-head.main:hover::after {
     transform: scaleX(1);
   }
 
-  .nav-link::after {
+  .nav-link::after,
+  .contact-head.main::after {
     content: '';
     position: absolute;
     width: 100%;
     transform: scaleX(0);
-    height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #141414;
     transition: transform 0.25s ease-out;
+  }
+
+  .nav-link::after {
+    height: 2px;
+    background-color: #141414;
     transform-origin: bottom left;
+  }
+
+  .contact-head.main::after {
+    height: 4px;
+    background-color: #FCFCFC;
+    transform-origin: bottom right;
   }
 
   .superscript::after {
@@ -64,6 +75,35 @@
     line-height: 1em;
     pointer-events: none;
     content: "(6)";
+  }
+
+  .contact-head {
+    font-family: "Inter Tight", Trebuchet MS, sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 1.05em;
+    max-width: fit-content;
+  }
+
+  .contact-head.main {
+    font-size: 7.8rem !important;
+    position: relative;
+    
+  }
+
+  .about-button {
+    padding-inline: 2.87rem;
+    height: 3.28rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FCFCFC;
+    background-color: #141414;
+    position: relative;
+    border-radius: 9999px;
+    transform-origin: center;
+    font-size: .75rem;
+    max-width: fit-content;
   }
 
 }
