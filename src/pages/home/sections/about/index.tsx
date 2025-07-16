@@ -1,6 +1,6 @@
 export default function AboutSection() {
     return (
-        <section className="flex flex-col gap-[5rem] py-20 min-h-screen max-h-fit lg:px-8 relative overflow-hidden">
+        <div className="flex flex-col gap-[5rem] py-20 min-h-screen max-h-fit lg:px-8 relative overflow-hidden">
             <div className="relative h-full">
                  <div className="max-w-[20%] basis-[25%] ml-24"> 
                     <picture>
@@ -46,6 +46,6 @@ export default function AboutSection() {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }

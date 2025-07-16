@@ -1,7 +1,8 @@
 import HeroBg from "@/assets/hero-bg02.png"
+
 export default function HeroSection() {
     return (
-         <section className="pl-4 h-screen relative overflow-hidden">
+         <div className="pl-4 h-screen relative overflow-hidden">
             <ul className="flex flex-col gap-0 text-start absolute ml-[50%] px-6 py-4 z-40">
                 <a href="/" className="nav-link">Home</a>
                 <a href="/about" className="nav-link">About</a>
@@ -25,26 +26,31 @@ export default function HeroSection() {
                             responsive, and visually appealing across devices.
                         </p>
                         <p className="capitalize mt-3 text-gray-900 !text-[11.25rem] !font-inter-tight font-bold z-5 leading-[8.125rem]">
-                        SUWAYBA
+                            SUWAYBA
                         </p>   
                     </div>
                 </div>
                 
                 <div className="w-full h-full max-h-screen">
-                    <picture>
-                        {/* <source media="(max-width: 480px)" srcSet="https://balance.michael-aust.com/media/pages/home/9f06b010e0-1743182714/header-img-placeholder-480x840-crop.webp" />
-                        <source media="(max-width: 760px)" srcSet="https://balance.michael-aust.com/media/pages/home/9f06b010e0-1743182714/header-img-placeholder-760x.webp"/>
-                        <source media="(max-width: 1200px)" srcSet="https://balance.michael-aust.com/media/pages/home/9f06b010e0-1743182714/header-img-placeholder-1200x.webp"/>
-                        <source media="(max-width: 1920px)" srcSet="https://balance.michael-aust.com/media/pages/home/9f06b010e0-1743182714/header-img-placeholder-1920x.webp"/>
-                        <source media="(min-width: 1921px)" srcSet="https://balance.michael-aust.com/media/pages/home/9f06b010e0-1743182714/header-img-placeholder-2560x.webp"/> */}
+                    <figure>
                         <img className="w-full" 
-                            alt="Dark skinned man in white suit looking to the left in a bright studio next to a table with flowers on it." 
+                            alt="Close-up of Sarah pouring water between cupped hands against a plain wall for the Jane publication." 
                             src={HeroBg} 
-                        />
-                        
-                    </picture>
+                        /> 
+                       <div className="z-20 absolute bottom-2 right-2 text-[10px] tracking-wider text-zinc-900">
+                            wilde / hein / sarah · via 
+                            <a 
+                                href="https://www.instagram.com/p/Ce3MUPJvvs2/?igshid=ZTJlZmI4ZjZmNw%3D%3D" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="underline"
+                            >
+                                greyattic
+                            </a>
+                        </div>
+                    </figure>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
