@@ -1,23 +1,23 @@
- import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss';
 
-const config: Config  = {
+const config: Config = {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
+    './src/global.css',
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        'tight': ['"Inter Tight"', 'sans-serif'],
+      },
       colors: {
         'muted-white': '#FCFCFC',
-        'secondary': '#9D9D9D'
-      },
-      fontFamily: {
-        'inter-tight': ['Inter Tight', 'sans-serif'],
+        'secondary': '#9D9D9D',
       },
     },
   },
   plugins: [],
-}
+};
 
 export default config;
