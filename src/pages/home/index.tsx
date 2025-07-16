@@ -1,90 +1,97 @@
-import HeroSection from "./sections/hero";
-import AboutSection from "./sections/about";
-import WorkSection from "./sections/work";
-import ContactSection from "./sections/contact";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
+import HeroSection from './sections/hero';
+import AboutSection from './sections/about';
+import { DungeonsAndDragons, R2D2, SpaceInvaders, Synesthesia } from './sections/work';
+import ContactSection from './sections/contact';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
+
+
+const sectionComponents = [
+  <HeroSection key="hero" />,
+  <AboutSection key="about" />,
+  <SpaceInvaders key="project-one" />,
+  <Synesthesia key="project-two" />,
+  <R2D2 key="project-three" />,
+  <DungeonsAndDragons key="project-four" />,
+  <ContactSection key="contact" />
+];
+
 export default function HomePage() {
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const lenisRef = useRef<Lenis | null>(null);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    lenisRef.current = lenis;
+
+    const animate = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    return () => {
+      lenis.destroy();
+      lenis.off('scroll', ScrollTrigger.update);
+    };
+  }, []);
+
   useGSAP(() => {
-    const sections = sectionsRef.current;
-   
-    const setupVerticalScroll = () => {
-      sections.forEach((section, index) => {
-        const nextSection = sections[index + 1];
-        if (!nextSection || index === 0) return;
-        
-        const sectionHeight = section.offsetHeight;
-        const viewportHeight = window.innerHeight;
-        const extraScroll = Math.max(0, sectionHeight - viewportHeight);
-        
-        if (extraScroll > 0) {
-          ScrollTrigger.create({
-            trigger: section,
-            start: 'top top',
-            end: () => `+=${extraScroll}`,
-            pin: true,
-            pinSpacing: false,
-            id: `pin-${index}`,
-          });
-        }
-        
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: section,
-              start: extraScroll > 0 ? () => `+=${extraScroll}` : 'top top',
-              end: () => `+=${viewportHeight}`,
-              scrub: 1.5,
-              id: `overlay-${index}`,
-            }
-          })
-          .fromTo(nextSection, {
-            y: '100%',
-          }, {
-            y: '0%',
-            ease: 'none',
-            duration: 3,
-          });
-      });
-    }
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+    const sections = sectionsRef.current.filter(Boolean) as HTMLElement[];
     
-    setupVerticalScroll();
-   
+    if (sections.length === 0) return;
+
+    sections.forEach((section, i) => {
+      const isLast = i === sections.length - 1;
+      
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: () => {
+          const prev = sections[i - 1];
+          return prev ? `bottom bottom` : "top top";
+        },
+        pin: !isLast,
+        pinSpacing: false,
+        anticipatePin: 1,
+      });
+    });
+
+
+  
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
-  
-  const addToRefs = (el: HTMLDivElement | null) => {
-    if (el && !sectionsRef.current.includes(el)) {
-      sectionsRef.current.push(el);
-    }
-  };
-  
-  const sectionComponents = [
-    <HeroSection key="hero" />,
-    <AboutSection key="about" />,
-    <WorkSection key="work" />,
-    <ContactSection key="contact" />
-  ];
-  
+
   return (
-    <div className="relative">
-      {sectionComponents.map((SectionComponent, index) => (
-        <div
-          key={index}
-          ref={addToRefs}
-          className={`sticky top-0 bg-[#FCFCFC] cursor-default min-h-screen`}
-          style={{ zIndex: index + 1 }}
+    <div ref={containerRef} className="relative">
+      {sectionComponents.map((SectionComponent, i) => (
+        <section
+          key={i}
+          ref={el => {
+            sectionsRef.current[i] = el;
+          }}
+          className="min-h-screen cursor-default bg-[#FCFCFC] relative"
         >
           {SectionComponent}
-        </div>
-      ))}
+        </section>
+      ))} 
     </div>
   );
 }
