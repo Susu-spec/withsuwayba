@@ -7,6 +7,7 @@ import AboutSection from './sections/about';
 import { DungeonsAndDragons, R2D2, SpaceInvaders, Synesthesia } from './sections/work';
 import ContactSection from './sections/contact';
 import { useGSAP } from '@gsap/react';
+import Layout from '@/components/Layout';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,7 +67,7 @@ export default function HomePage() {
           const prev = sections[i - 1];
           return prev ? `bottom bottom` : "top top";
         },
-        pin: !isLast,
+        pin: true,
         pinSpacing: false,
         anticipatePin: 1,
       });
@@ -80,7 +81,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative">
+    <Layout ref={containerRef}>
       {sectionComponents.map((SectionComponent, i) => (
         <section
           key={i}
@@ -92,6 +93,6 @@ export default function HomePage() {
           {SectionComponent}
         </section>
       ))} 
-    </div>
+    </Layout>  
   );
 }
