@@ -15,9 +15,9 @@ gsap.registerPlugin(ScrollTrigger);
 const sectionComponents = [
   <HeroSection key="hero" />,
   <AboutSection key="about" />,
-  <SpaceInvaders key="project-one" />,
-  <Synesthesia key="project-two" />,
-  <R2D2 key="project-three" />,
+  <Synesthesia key="project-one" />,
+  <R2D2 key="project-two" />,
+  <SpaceInvaders key="project-three" />,
   <DungeonsAndDragons key="project-four" />,
   <ContactSection key="contact" />
 ];
@@ -58,8 +58,6 @@ export default function HomePage() {
     if (sections.length === 0) return;
 
     sections.forEach((section, i) => {
-      const isLast = i === sections.length - 1;
-      
 
       ScrollTrigger.create({
         trigger: section,
