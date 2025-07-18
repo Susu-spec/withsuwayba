@@ -1,15 +1,46 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from "react";
+
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function AboutSection() {
+    const imageRef = useRef(null);
+    useGSAP(() => {
+         gsap.set(imageRef.current, {
+        'clip-path': "inset(0% 0 50% 0)"
+    });
+
+        gsap.to(imageRef.current, {
+            'clip-path': "inset(0% 0 0% 0)",
+            duration: 3,
+            // ease: "power2.out",
+            scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 90%",
+            toggleActions: "play none none none",
+            scrub: 1,
+            markers: true,
+  
+            }
+        });
+    }, []);
+            
     return (
-        <div className="flex flex-col gap-[5rem] py-20 min-h-screen max-h-fit lg:px-8 relative overflow-hidden">
+        <div className="flex flex-col gap-[5rem] py-20 min-h-screen max-h-fit lg:px-8 relative overflow-visible">
             <div className="relative h-full">
-                 <div className="max-w-[20%] basis-[25%] ml-24"> 
+                 <div ref={imageRef} className="max-w-[20%] basis-[25%] ml-24 overflow-visible"> 
                     <picture>
                         <source media="(max-width: 480px)" srcSet="https://balance.michael-aust.com/media/pages/home/d09fd96a96-1743182714/index-about-placeholder-480x.webp" type="image/webp" />
                         <source media="(max-width: 760px)" srcSet="https://balance.michael-aust.com/media/pages/home/d09fd96a96-1743182714/index-about-placeholder-760x.webp" type="image/webp" />
                         <source media="(max-width: 1200px)" srcSet="https://balance.michael-aust.com/media/pages/home/d09fd96a96-1743182714/index-about-placeholder-1200x.webp" type="image/webp" />
                         <source media="(max-width: 1920px)" srcSet="https://balance.michael-aust.com/media/pages/home/d09fd96a96-1743182714/index-about-placeholder-1920x.webp" type="image/webp" />
                         <source media="(min-width: 1921px)" srcSet="https://balance.michael-aust.com/media/pages/home/d09fd96a96-1743182714/index-about-placeholder-2560x.webp" type="image/webp" />
-                        <img src="https://balance.michael-aust.com/media/pages/home/d09fd96a96-1743182714/index-about-placeholder-2560x.webp" />
+                        <img
+                            src="https://balance.michael-aust.com/media/pages/home/d09fd96a96-1743182714/index-about-placeholder-2560x.webp" 
+                            alt="Flowers behind a plain background with a black and white overlay"/>
                     </picture>
                 </div>
                 <h1 className="font-inter-tight font-bold text-black text-[3.5rem] leading-[3rem]">
