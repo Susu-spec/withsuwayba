@@ -4,7 +4,8 @@
 
 :root {
   font-family: "Inter", "Trebuchet MS", sans-serif;
-  line-height: 1.5;
+  font-size: .99rem;
+  line-height: 1.33;
   font-weight: 500;
 
   color-scheme: light dark;
