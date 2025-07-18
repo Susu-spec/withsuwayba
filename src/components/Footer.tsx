@@ -42,7 +42,7 @@ export default function Footer() {
                         <div className="flex flex-col gap-[.94rem]">
                             <p className="flex flex-col text-sm">
                                     <span className="text-gray-400">(Inquiries)</span>
-                                    <a className="underline">suwayba@studio.com</a>
+                                    <a className="underline" href="mailto:suleimansuwaibat@gmail.com">suwayba@studio.com</a>
                             </p>
                             <p className="flex flex-col text-sm">
                                     <span className="text-gray-400">(Phone)</span>
