@@ -14,8 +14,8 @@ export default function HeroSection() {
             </ul>
             
             <div className="grid grid-cols-2 h-full">
-                <div className="flex flex-col relative justify-end">
-                    <div className="max-w-[50%] leading-[1.125rem]">
+                <div className="flex flex-col relative justify-end z-40">
+                    <div className="max-w-[50%] leading-[1.125rem] ">
                         <p className="font-medium text-xs">
                             Frontend Engineer
                         </p>
@@ -25,7 +25,7 @@ export default function HeroSection() {
                             My work ensures that digital products are usable, 
                             responsive, and visually appealing across devices.
                         </p>
-                        <p className="capitalize mt-3 text-gray-900 !text-[11.25rem] !font-inter-tight font-bold z-5 leading-[8.125rem]">
+                        <p className="capitalize mt-3 text-gray-900 !text-[11.25rem] !font-inter-tight font-bold leading-[8.125rem]">
                             SUWAYBA
                         </p>   
                     </div>
@@ -33,7 +33,7 @@ export default function HeroSection() {
                 
                 <div className="w-full h-full max-h-screen">
                     <figure>
-                        <img className="w-full" 
+                        <img className="w-full zoom-in-out" 
                             alt="Close-up of Sarah pouring water between cupped hands against a plain wall for the Jane publication." 
                             src={HeroBg} 
                         /> 
