@@ -9,9 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutSection() {
     const imageRef = useRef(null);
     useGSAP(() => {
-         gsap.set(imageRef.current, {
-        'clip-path': "inset(0% 0 50% 0)"
-    });
+    //      gsap.set(imageRef.current, {
+    //     'clip-path': "inset(0% 0 50% 0)"
+    // });
 
         gsap.to(imageRef.current, {
             'clip-path': "inset(0% 0 0% 0)",
