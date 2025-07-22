@@ -22,3 +22,22 @@ A personal portfolio website built with React and TailwindCSS.
 
 ```
 
+## Project Structure
+
+```bash
+    src/
+    ├── assets/
+    ├── components/
+    │   ├── Layout.tsx
+    │   ├── Footer.tsx
+    │   └── Header.tsx
+    ├── pages/
+    ├── App.tsx
+    ├── global.css
+    ├── main.tsx
+    └── vite-env.d.ts
+```
+
+## Author
+
+- [@Susu-spec](https://github.com/Susu-spec)
