@@ -25,9 +25,9 @@ export default function HeroSection() {
 export function HeroText() {
     return (
         <div className="h-full md:min-h-fit flex flex-col justify-end z-50">
-            <div className="max-w-full md:max-w-[50%] leading-[1.125rem] px-10 py-10 md:py-0">
+            <div className="max-w-full md:max-w-[50%] leading-[1.125rem] md:px-10 px-5 py-10 md:py-0">
                 <p className="font-medium text-base md:text-sm">Frontend Engineer</p>
-                <p className="text-gray-400 md:text-sm mt-2">
+                <p className="text-gray-400 md:text-sm md:mt-2">
                     I build interactive user interfaces that 
                     connect users to the backend logic of applications. 
                     My work ensures that digital products are usable, 
