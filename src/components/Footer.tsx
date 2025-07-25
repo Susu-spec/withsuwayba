@@ -8,9 +8,9 @@ export default function Footer() {
 
     return (
         <footer className="h-screen relative bg-[#FCFCFC] flex flex-col justify-between">
-            <div className="flex justify-between">
+            <div className="flex flex-col-reverse md:flex-row justify-between py-3 px-6 md:px-0">
                 <div className="w-full">
-                    <ul className="flex flex-col gap-0 text-start px-6 py-4 ">
+                    <ul className="flex flex-col gap-0 text-start md:px-6 py-4">
                         <a href="/" className="nav-link !text-[5.3rem]">Home</a>
                         <a href="/about" className="nav-link !text-[5.3rem]">About</a>
                         <a href="/work" className="nav-link !text-[5.3rem]">
@@ -20,7 +20,7 @@ export default function Footer() {
                         <a href="/contact" className="nav-link !text-[5.3rem]">Contact</a>
                     </ul>
                 </div>
-                <div className="flex flex-col justify-end w-full max-w-[20%] items-end px-[.94rem]">
+                <div className="flex flex-col justify-end w-full md:max-w-[20%] items-end md:px-[.94rem]">
                     <div className="flex flex-col w-full">
                         <div className="flex items-center gap-[.94rem] flex-wrap">
                             <a href="https://instagram.com/" target="_blank" title="Visit on Instagram">
