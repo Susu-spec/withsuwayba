@@ -2,17 +2,18 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
-import HeroSection from './sections/hero';
+import HeroSection, { HeroImage, HeroText } from './sections/hero';
 import AboutSection from './sections/about';
 import { DungeonsAndDragons, R2D2, SpaceInvaders, Synesthesia } from './sections/work';
 import ContactSection from './sections/contact';
 import { useGSAP } from '@gsap/react';
 import Layout from '@/components/Layout';
+import { useMediaQuery } from 'react-responsive';
 
 gsap.registerPlugin(ScrollTrigger);
 
 
-const sectionComponents = [
+const desktopComponents = [
   <HeroSection key="hero" />,
   <AboutSection key="about" />,
   <Synesthesia key="project-one" />,
@@ -22,11 +23,29 @@ const sectionComponents = [
   <ContactSection key="contact" />
 ];
 
+const mobileComponents = [
+  <HeroText key="hero-text"/>,
+  <HeroImage key="hero-image"/>,
+  <AboutSection key="about" />,
+  <Synesthesia key="project-one" />,
+  <R2D2 key="project-two" />,
+  <SpaceInvaders key="project-three" />,
+  <DungeonsAndDragons key="project-four" />,
+  <ContactSection key="contact" />
+]
+
+
 export default function HomePage() {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lenisRef = useRef<Lenis | null>(null);
+  const isMobile = useMediaQuery({query: '(max-width: 767px)'});
 
+
+  const sectionComponents = isMobile ? mobileComponents : desktopComponents;
+
+
+  // Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -50,12 +69,14 @@ export default function HomePage() {
     };
   }, []);
 
+  // Gsap scroll
   useGSAP(() => {
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
     const sections = sectionsRef.current.filter(Boolean) as HTMLElement[];
     
     if (sections.length === 0) return;
+    
 
     sections.forEach((section, i) => {
 
@@ -66,6 +87,7 @@ export default function HomePage() {
           return prev ? `bottom bottom` : "top top";
         },
         pin: true,
+        markers: false,
         pinSpacing: false,
         anticipatePin: 1,
       });
