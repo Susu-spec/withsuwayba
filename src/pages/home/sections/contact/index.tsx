@@ -6,7 +6,7 @@ export default function ContactSection() {
             <figure className="absolute w-full h-full top-0 -z-20">
                 <img 
                     alt="Top half of woman's head with dark hair in front of plain background." 
-                    src={contactBg} className="w-full"/>
+                    src={contactBg} className="w-full h-full"/>
                 <div className="z-20 absolute bottom-2 right-2 text-[10px] tracking-wider text-zinc-900">
                     kamilla / valerie · via  
                     <a href="https://www.instagram.com/p/Cyl19ibLwMC/?img_index=5" 
@@ -18,11 +18,11 @@ export default function ContactSection() {
                     </a>
                 </div>
             </figure>
-            <div className="flex justify-between items-start w-full px-8">
+            <div className="flex justify-between items-start w-full px-2 md:px-8 relative">
                  <p>(Contact)</p>
-                <h1 className="contact-head max-w-[50%]">
+                <h1 className="contact-head w-full absolute left-4 md:max-w-[50%] md:static text-2xl md:text-inherit">
                     <span className="block">
-                    <span className="pl-[10rem]">Global presence,</span> global</span> 
+                    <span className="pl-28 md:pl-[10rem]">Global presence,</span> global</span> 
                     <span className="block">recognition — Contact me to take </span>
                     <span className="block">your next step.</span>
                 </h1>

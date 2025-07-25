@@ -229,5 +229,9 @@
       position: absolute;
       top: 3rem;
     }
+
+    .contact-head.main {
+      font-size: 2.625rem !important;
+    }
   }
 
