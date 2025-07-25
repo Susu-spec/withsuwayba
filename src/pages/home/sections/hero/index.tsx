@@ -25,7 +25,7 @@ export default function HeroSection() {
 export function HeroText() {
     return (
         <div className="h-full md:min-h-fit flex flex-col justify-end z-50">
-            <div className="max-w-full md:max-w-[50%] leading-[1.125rem] md:px-10 px-5 py-10 md:py-0">
+            <div className="max-w-full md:max-w-[50%] leading-[1.125rem] px-5 py-10 md:py-0">
                 <p className="font-medium text-base md:text-sm">Frontend Engineer</p>
                 <p className="text-gray-400 md:text-sm md:mt-2">
                     I build interactive user interfaces that 
@@ -51,7 +51,7 @@ export function HeroImage() {
                     src={HeroBg} 
                 /> 
                 <div className="z-20 absolute bottom-2 right-2 text-[10px] tracking-wider text-zinc-900">
-                    wilde / hein / sarah · via 
+                    wilde / hein / sarah · via&nbsp;
                     <a 
                         href="https://www.instagram.com/p/Ce3MUPJvvs2/?igshid=ZTJlZmI4ZjZmNw%3D%3D" 
                         target="_blank" 

@@ -42,7 +42,7 @@ export const SpaceInvaders = () => {
                         Space Invaders
                     </a>
                 </figcaption>
-                <figcaption className="z-20 absolute bottom-2 right-2 text-[10px] tracking-wider text-zinc-900">
+                <figcaption className="z-20 absolute top-8 right-2 text-[10px] tracking-wider text-zinc-900">
                     bruce mccandles · nasa · via <span> </span> 
                     <a href="https://www.instagram.com/p/DB7_kpjuElI/?hl=en" 
                         target="_blank" 
@@ -100,7 +100,7 @@ export const R2D2 = () => {
                 </a>
             </figcaption>
 
-            <figcaption className="z-20 absolute bottom-2 right-2 text-[10px] tracking-wider text-zinc-900">
+            <figcaption className="z-20 absolute top-8 right-2 text-[10px] tracking-wider text-zinc-900">
                 zeekr · via <span />
                 <a
                     href="https://www.instagram.com/p/DB7_kpjuElI/?hl=en"
