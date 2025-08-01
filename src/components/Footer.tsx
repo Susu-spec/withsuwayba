@@ -1,3 +1,5 @@
+// import { SocialIcon } from "react-social-icons";
+
 export default function Footer() {
     const scrollToTop = () => {
         window.scrollTo({
@@ -8,50 +10,52 @@ export default function Footer() {
 
     return (
         <footer className="h-screen relative bg-[#FCFCFC] flex flex-col justify-between">
-            <div className="flex flex-col-reverse md:flex-row justify-between py-3 px-6 md:px-0">
-                <div className="w-full">
-                    <ul className="flex flex-col gap-0 text-start md:px-6 py-4">
-                        <a href="/" className="nav-link !text-[5.3rem]">Home</a>
-                        <a href="/about" className="nav-link !text-[5.3rem]">About</a>
-                        <a href="/work" className="nav-link !text-[5.3rem]">
-                            Work
-                            <span className="superscript"></span>
-                        </a>
-                        <a href="/contact" className="nav-link !text-[5.3rem]">Contact</a>
-                    </ul>
-                </div>
-                <div className="flex flex-col justify-end w-full md:max-w-[20%] items-end md:px-[.94rem]">
-                    <div className="flex flex-col w-full">
-                        <div className="flex items-center gap-[.94rem] flex-wrap">
-                            <a href="https://instagram.com/" target="_blank" title="Visit on Instagram">
-                                <span className="icon-instagram"></span>
+            <div className="md:h-[80dvh] relative">
+                <div className="flex flex-col-reverse md:flex-row justify-between py-3 px-6 md:px-0">
+                    <div className="w-full">
+                        <ul className="flex flex-col gap-0 text-start md:px-6 py-4">
+                            <a href="#hero" className="nav-link nav-bottom-link">Home</a>
+                            <a href="#about" className="nav-link nav-bottom-link">About</a>
+                            <a href="#work" className="nav-link nav-bottom-link">
+                                Work
+                                <span className="superscript-bottom"></span>
                             </a>
-                            <a href="https://facebook.com/" target="_blank" title="Visit on Facebook">
-                                <span className="icon-facebook"></span>
-                            </a>
-                            <a href="https://x.com/" target="_blank" title="Visit on Twitter">
-                                <span className="icon-x"></span>
-                            </a>
-                            <a href="https://linkedin.com/" target="_blank" title="Visit on LinkedIn">
-                                <span className="icon-linkedin"></span>
-                            </a>
-                            <a href="https://youtube.com/" target="_blank" title="Visit on Youtube">
-                                <span className="icon-youtube"></span>
-                            </a>
-                        </div>
-                        <div className="flex flex-col gap-[.94rem]">
-                            <p className="flex flex-col text-sm">
-                                    <span className="text-gray-400">(Inquiries)</span>
-                                    <a className="underline" href="mailto:suleimansuwaibat@gmail.com">suwayba@studio.com</a>
-                            </p>
-                            <p className="flex flex-col text-sm">
-                                    <span className="text-gray-400">(Phone)</span>
-                                    <span className="underline">+491234 56789</span>
-                            </p>
-                        </div>
+                            <a href="#contact" className="nav-bottom-link">Contact</a>
+                        </ul>
                     </div>
+                    <div className="flex flex-col justify-end w-full md:max-w-[20%] items-end md:px-[.94rem]">
+                        <div className="flex md:flex-col w-full pt-8 md:pt-0">
+                            {/* <div className="flex items-center gap-[.94rem] flex-wrap">
+                                <div title="Visit on Instagram" className="social">
+                                    <SocialIcon url="www.instagram.com" style={{ width: '1.75rem', height: '1.75rem'}}/>
+                                </div>
+                                <div title="Visit on Facebook" className="social">
+                                      <SocialIcon url="www.facebook.com" bgColor="#000" style={{ width: '1.75rem', height: '1.75rem'}}/>
+                                </div>
+                                <div title="Visit on X" className="social">
+                                      <SocialIcon url="www.x.com" bgColor="#000" style={{ width: '1.75rem', height: '1.75rem'}}/>
+                                </div>
+                                <div title="Visit on LinkedIn" className="social">
+                                      <SocialIcon url="www.linkedin.com" bgColor="#000" style={{ width: '1.75rem', height: '1.75rem'}}/>
+                                </div>
+                                <div title="Visit on Youtube"  className="social">
+                                      <SocialIcon url="www.youtube.com" bgColor="#000" style={{ width: '1.75rem', height: '1.75rem'}}/>
+                                </div>
+                            </div> */}
+                            <div className="md:absolute md:bottom-4 flex flex-col gap-[.94rem]">
+                                <p className="flex flex-col text-sm">
+                                        <span className="text-gray-400">(Inquiries)</span>
+                                        <a className="underline" href="mailto:suleimansuwaibat@gmail.com">suwayba@studio.com</a>
+                                </p>
+                                <p className="flex flex-col text-sm">
+                                        <span className="text-gray-400">(Phone)</span>
+                                        <span className="underline">+491234 56789</span>
+                                </p>
+                            </div>
+                        </div>
 
-                </div>
+                    </div>
+                </div>               
             </div>
             <div className="w-full px-4 absolute bottom-18">
                 <hr className="w-full text-gray-400 mb-6" />
@@ -70,7 +74,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="bg-black w-full text-center absolute bottom-0">
-                <p className="text-white text-xs py-4">Design Credits - <a href="/">Michael Aust</a></p>
+                <p className="text-white text-xs py-4">Inspiration - <a href="https://balance.michael-aust.com/">Michael Aust</a></p>
             </div>
         </footer>
     )

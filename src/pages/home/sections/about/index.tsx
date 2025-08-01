@@ -29,7 +29,9 @@ export default function AboutSection() {
     }, []);
             
     return (
-        <div className="flex flex-col gap-[5rem] py-20 min-h-screen max-h-fit lg:px-8 relative overflow-visible">
+        <div 
+            className="flex flex-col gap-[5rem] py-20 min-h-screen max-h-fit lg:px-8 relative overflow-visible"
+        >
             <div className="relative h-full">
                  <div ref={imageRef} className="max-w-[40%] md:max-w-[20%] basis-[25%] ml-10 md:ml-24 overflow-visible"> 
                     <picture>
@@ -76,7 +78,7 @@ export default function AboutSection() {
                                 vision or a collaborative effort.
                             </p>
                         </div>
-                         <a href="/about" className="about-button text-base flex md:hidden" title="About | Suwayba">More about me</a>
+                         <a href="#about" className="about-button text-base flex md:hidden" title="About | Suwayba">More about me</a>
                     </div>
                 </div>
             </div>

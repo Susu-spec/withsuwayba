@@ -32,9 +32,9 @@
     @apply h-screen w-full max-w-[90rem] px-4 sm:px-6 lg:px-8 !mx-auto sticky top-0
   }
 
-  .nav-link {
+  .nav-link,
+  .nav-bottom-link {
     color: #141414;
-    font-size: 1.75rem;
     font-weight: 700;
     font-family: "Inter Tight", "sans-serif";
     line-height: 115%;
@@ -43,11 +43,13 @@
   }
 
   .nav-link:hover::after,
+  .nav-bottom-link:hover::after,
   .contact-head.main:hover::after {
     transform: scaleX(1);
   }
 
   .nav-link::after,
+  .nav-bottom-link::after,
   .contact-head.main::after {
     content: '';
     position: absolute;
@@ -58,10 +60,19 @@
     transition: transform 0.25s ease-out;
   }
 
-  .nav-link::after {
+  .nav-link::after,
+  .nav-bottom-link::after {
     height: 2px;
     background-color: #141414;
     transform-origin: bottom left;
+  }
+
+  .nav-link {
+    font-size: 1.75rem;
+  }
+
+  .nav-bottom-link {
+    font-size: 5rem;
   }
 
 
@@ -71,16 +82,25 @@
     transform-origin: bottom right;
   }
 
-  .superscript::after {
+  .superscript::after,
+  .superscript-bottom::after {
     vertical-align: super;
     font-weight: 500;
-    font-size: 1.15rem;
     line-height: 1em;
     pointer-events: none;
     content: "(4)";
   }
 
-  .contact-head {
+  .superscript-bottom::after {
+    font-size: 2.5rem;
+  }
+
+  .superscript::after {
+    font-size: 1.125rem;
+  }
+
+  .contact-head,
+  .contact-main {
     font-family: "Inter Tight", Trebuchet MS, sans-serif;
     font-weight: 700;
     font-size: 2.4rem;
@@ -88,8 +108,12 @@
     max-width: fit-content;
   }
 
-  .contact-head.main {
-    font-size: 7.8rem !important;
+  .contact-head {
+    font-size: 2.4rem;
+  }
+
+  .contact-main {
+    font-size: 7.8rem;
     position: relative;
     
   }
@@ -177,7 +201,7 @@
     background-position: 100%;
   }
 
-  .social > a {
+  .social {
     width: 2.97rem;
     height: 2.97rem;
     position: relative;
@@ -189,12 +213,12 @@
     border-radius: 100%;
   }
 
-  .social > a {
-    position: absolute;
+  .social {
+    /* position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    left: 0; */
+    /* width: 100%;
+    height: 100%; */
     background-color: #141414;
     border-radius: 100%;
     z-index: -1;
@@ -230,8 +254,16 @@
       top: 3rem;
     }
 
-    .contact-head.main {
-      font-size: 2.625rem !important;
+    .contact-main {
+      font-size: 2.625rem;
+    }
+
+    .superscript::after {
+      font-size: 1.125rem;
+    }
+
+    .nav-bottom-link {
+      font-size: 4rem;
     }
   }
 

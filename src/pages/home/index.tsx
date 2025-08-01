@@ -24,7 +24,7 @@ const desktopComponents = [
 ];
 
 const mobileComponents = [
-  <HeroText key="hero-text"/>,
+  <HeroText key="hero" />,
   <HeroImage key="hero-image"/>,
   <AboutSection key="about" />,
   <Synesthesia key="project-one" />,
@@ -34,6 +34,26 @@ const mobileComponents = [
   <ContactSection key="contact" />
 ]
 
+const desktopSectionIds = [
+  "hero",
+  "about",
+  "project-one",
+  "project-two",
+  "project-three",
+  "project-four",
+  "contact"
+];
+
+const mobileSectionIds = [
+  "hero",
+  "hero-image",
+  "about",
+  "project-one",
+  "project-two",
+  "project-three",
+  "project-four",
+  "contact"
+];
 
 export default function HomePage() {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -43,6 +63,7 @@ export default function HomePage() {
 
 
   const sectionComponents = isMobile ? mobileComponents : desktopComponents;
+  const sectionIds = isMobile ? mobileSectionIds : desktopSectionIds;
 
 
   // Lenis smooth scroll
@@ -109,6 +130,7 @@ export default function HomePage() {
             sectionsRef.current[i] = el;
           }}
           className="min-h-screen cursor-default bg-[#FCFCFC] relative"
+          id={sectionIds[i]}
         >
           {SectionComponent}
         </section>

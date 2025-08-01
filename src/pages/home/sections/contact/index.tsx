@@ -2,7 +2,9 @@ import contactBg from "@/assets/contact-bg04.png";
 
 export default function ContactSection() {
     return (
-        <div className="z-4 py-10 h-screen text-white contact relative flex flex-col justify-between overflow-hidden cursor-default">
+        <div
+            className="z-4 py-10 h-screen text-white contact relative flex flex-col justify-between overflow-hidden cursor-default"
+        >
             <figure className="absolute w-full h-full top-0 -z-20">
                 <img 
                     alt="Top half of woman's head with dark hair in front of plain background." 
@@ -19,15 +21,18 @@ export default function ContactSection() {
                 </div>
             </figure>
             <div className="flex justify-between items-start w-full px-2 md:px-8 relative">
-                 <p>(Contact)</p>
-                <h1 className="contact-head w-full absolute left-4 md:max-w-[50%] md:static text-2xl md:text-inherit">
+                 <p className="hidden md:block">(Contact)</p>
+                <h1 className="contact-head w-full absolute right-4 md:static text-2xl md:text-inherit">
                     <span className="block">
-                    <span className="pl-28 md:pl-[10rem]">Global presence,</span> global</span> 
+                    <span className="pl-28 md:pl-[10rem]">Global presence,</span> global </span> 
                     <span className="block">recognition — Contact me to take </span>
                     <span className="block">your next step.</span>
                 </h1>
             </div>
-            <a href="mailto:suleimansuwaibat@gmail.com" className="contact-head main ml-8">Contact me</a>
+            <a 
+                href="mailto:suleimansuwaibat@gmail.com" 
+                className="contact-main ml-4 md:ml-8"
+            >Contact me</a>
         </div>
     );
 }
