@@ -1,4 +1,4 @@
-import HeroBg from "@/assets/hero-bg02.png"
+import HeroBg from "@/assets/hero-bg02.jpg"
 
 export default function HeroSection() {
     return (

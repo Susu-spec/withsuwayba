@@ -1,4 +1,4 @@
-import contactBg from "@/assets/contact-bg04.png";
+import contactBg from "@/assets/contact-bg04.jpg";
 
 export default function ContactSection() {
     return (

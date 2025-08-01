@@ -1,6 +1,6 @@
-import blue from "@/assets/blue.png";
+import blue from "@/assets/blue.jpg";
 import piano from "@/assets/r2-d2.jpg";
-import space from "@/assets/space-walk.png";
+import space from "@/assets/space-walk.jpg";
 import paper from "@/assets/paper.jpg";
 
 
